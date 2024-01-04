@@ -1,0 +1,34 @@
+<div class="card-game">
+    <div *ngFor="let card of cards" (click)="flipCard(card)">
+      <div class="card" [ngClass]="{'flipped': card.flipped, 'matched': card.matched}">
+        <div class="front"></div>
+        <div class="back" [ngStyle]="{'background-image': 'url(' + card.image + ')'}"></div>
+      </div>
+    </div>
+  </div>
+
+ <div id="moves">
+    <div id="totalMoves">
+      <h2>Total Moves - {{totalMoves}}</h2>
+    </div>
+    <div id="successMoves">
+      <h2>Success Moves - {{successMoves}}</h2>
+    </div>
+    <div id="accuracy">
+      <h2>Accuracy - {{accuracy}} %</h2>
+    </div>
+    <div id="rounds">
+      <h2>Rounds Played - {{roundsPlayed}}</h2>
+    </div>
+ </div>
+
+ <div *ngIf="showWinMessage" class="win-message">
+  <p>You Won!</p>
+  <button (click)="goToHomePage()">Play again</button>
+</div>
+
+ <div id="restart">
+  <a routerLink="/card-game"><button (click)="reloadPage()">Restart Game</button></a>
+  <a routerLink=""><button>Exit</button></a>
+ </div>
+  

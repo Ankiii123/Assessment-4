@@ -1,0 +1,10 @@
+<div class="timer">
+    <h2>Timer</h2>
+    <div class="time">{{ minutes| number: '2.0-5' }}:{{ seconds | number: '2.0-0' }}</div>
+    <div class="controls">
+      <button (click)="startTimer()" [disabled]="isTimerRunning">Start</button>
+      <button (click)="stopTimer()" [disabled]="!isTimerRunning">Stop</button>
+      <button (click)="resetTimer()">Reset</button>
+    </div>
+  </div>
+  

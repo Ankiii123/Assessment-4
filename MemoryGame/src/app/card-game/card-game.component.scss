@@ -1,0 +1,121 @@
+.card-game {
+  margin-left: 200px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  
+    .card {
+      width: 200px;
+      height: 200px;
+      perspective: 1000px;
+      cursor: pointer;
+      position: relative;
+  
+      .front,
+      .back {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        backface-visibility: hidden;
+        transition: transform 0.5s;
+        border: 1px solid #ddd;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+      }
+  
+      .front {
+        transform: rotateY(0deg);
+        background-image: url("../../assets/H.png");
+      }
+  
+      .back {
+        transform: rotateY(180deg);
+        background-size: cover;
+        background-position: center;
+      }
+  
+      &.flipped .front {
+        transform: rotateY(180deg);
+      }
+  
+      &.flipped .back {
+        transform: rotateY(360deg);
+      }
+  
+      &.matched {
+        visibility: hidden;
+      }
+    }
+  }
+
+
+  #moves{
+    display: flex;
+    justify-content: space-between;
+    background-color: rgb(212, 204, 204);
+    margin-top: 10px;
+  }
+
+  #totalMoves{
+    margin-left: 10px;
+  }
+
+  #successMoves{
+    margin-right: 10px;
+  }
+
+  #restart{
+    display: flex;
+    justify-content: space-between;
+  }
+
+  button{
+    background-color: #008CBA;
+    color: white;
+    border: none;
+    padding: 20px 40px;
+    font-size: 16px;
+    position: relative;
+    transition: transform 0.3s;
+  }
+  
+  button:hover {
+    background-color: #263338; /* change to your desired color */
+    color: white; /* change to your desired color */
+  }
+
+  .win-message {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    border-radius: 5px;
+    color: white;
+    height: 200px;
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .win-message p {
+    margin: 0;
+    font-size: 1.5em;
+  }
+  .win-message button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    font-size: 1em;
+    background-color: #0066CC;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  .win-message button:hover {
+    background-color: #005299;
+  }
+  
