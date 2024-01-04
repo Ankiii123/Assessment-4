@@ -1,0 +1,30 @@
+<!-- board.component.html -->
+<div class="board-container">
+  <div class="board">
+    <div *ngFor="let cell of cells" class="cell">
+      {{ isExists(cell) === "" && !isSnakeorLadderExists(cell) ? cell : "" }}
+      <div *ngIf="isExists(cell) !== ''" class="player-icon">
+        <img [src]="getPlayerIcon(isExists(cell))" alt="Player Icon" />
+      </div>
+
+      <div
+        *ngIf="isSnakeorLadderExists(cell)"
+        style="position: relative; left: 4px; top: 3px"
+      >
+        <img
+          [src]="getSnakeOrLadder(cell).img"
+          class="currentPlayer"
+          style="height: 35px; width: 35px"
+        />
+        <span [style]="getSnakeOrLadder(cell).style">{{
+          getSnakeOrLadder(cell).value
+        }}</span>
+      </div>
+    </div>
+    <div class="roll-val">
+      <div>{{ rollValue }}</div>
+      <button (click)="rollDice()" [disabled]="diceRolled">Roll</button>
+    </div>
+    
+  </div>
+</div>

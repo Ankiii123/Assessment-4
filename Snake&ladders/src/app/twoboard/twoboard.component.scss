@@ -1,0 +1,110 @@
+/* board.component.scss */
+.board-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+
+
+  .board {
+    display: grid;
+    padding: 5px;
+    grid-template-columns: repeat(10, 50px);
+    grid-template-rows: repeat(10, 50px);
+    gap: 5px;
+  }
+
+  .cell {
+    border: 2px solid #555;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "Roboto", sans-serif;
+    font-size: 14px;
+    color: #333;
+    background-color: #b3774d;
+    transition: background-color 0.3s ease-in-out;
+    border-radius: 25%;
+
+    &.snake-ladder {
+      background-color: #f0f0f0;
+    }
+  }
+
+  .app-player {
+    width: 100%;
+    height: 100%;
+  }
+
+  .player {
+    width: 100%;
+    height: 100%;
+    border-radius: 20%;
+    position: relative;
+
+
+    .player-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+
+      img {
+        max-width: 80%;
+        max-height: 80%;
+        border-radius: 50%;
+      }
+    }
+  }
+
+  .roll-val {
+    font-size: 20px;
+    font-weight: bold;
+    color: #fff;
+    background-color: #5eaaa8;
+    border-radius: 8px;
+    text-align: center;
+    padding: 8px;
+    width: 50px;
+    margin: 0 auto;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease-in-out;
+
+    &:hover {
+      background-color: #3d7674;
+    }
+  }
+}
+
+/* dice.component.scss */
+button {
+  padding: 10px;
+  font-size: 18px;
+  color: #fff;
+  background-color: #ffa07a;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+
+  &:hover {
+    background-color: #ff7f50;
+  }
+
+  &:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+}
+
+.arrows {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.destination-cell {
+  width: 10px;
+  height: 10px;
+  color: #ff0000;
+}
